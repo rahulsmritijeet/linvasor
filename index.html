@@ -1268,6 +1268,48 @@
           transform: none;
         }
       }
+      /* stop sideways scroll */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* let grid/flex children shrink instead of stretching the page */
+.fg > *,
+.grid > *,
+.about > *,
+.aw > *,
+.row > *,
+.duo > * {
+  min-width: 0;
+}
+.fg a,
+.person a,
+.dir a {
+  overflow-wrap: anywhere;
+}
+
+/* hero stats: fit on small phones */
+.hstats .row {
+  flex-wrap: wrap;
+  gap: 16px clamp(20px, 5vw, 76px);
+}
+@media (max-width: 480px) {
+  .hstats b {
+    font-size: 2.2rem;
+  }
+  .hstats span {
+    font-size: 0.75rem;
+  }
+  .hstats .row {
+    gap: 12px 22px;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 15vw, 4rem);
+  }
+}
     </style>
   </head>
   <body>
